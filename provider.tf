@@ -1,6 +1,4 @@
-# provider "aws" {
-#   region = var.AWS_REGION
-# }
+
 terraform {
   required_providers {
     aws = {

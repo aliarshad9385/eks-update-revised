@@ -55,11 +55,11 @@ variable "MAX_SIZE" {
 }
 
 variable "MIN_SIZE" {
-  default = 1
+  default = 2
 }
 
 variable "DESIRED_SIZE" {
-  default = 1
+  default = 2
 }
 
 variable "FORCE_DELETE" {

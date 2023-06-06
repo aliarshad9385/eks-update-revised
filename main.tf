@@ -8,8 +8,6 @@ module "eks" {
 
 }
 
-
-
 resource "time_sleep" "wait_100s" {
   depends_on      = [module.eks]
   create_duration = "100s"

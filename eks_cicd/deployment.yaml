@@ -23,7 +23,7 @@ spec:
         app: USERS
     spec:
       containers:
-        - image: 737971166371.dkr.ecr.us-east-1.amazonaws.com/users:latest
+        - image: #####.dkr.ecr.us-east-1.amazonaws.com/users:latest
           imagePullPolicy: Always
           name: users
           ports:

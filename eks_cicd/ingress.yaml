@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: users-ingress
+  annotations:
+    users.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: users
+  rules:
+  - http:
+      paths:
+      - path: /app
+        pathType: Prefix
+        backend:
+          service:
+            name: users
+            port:
+              number: 8080
+

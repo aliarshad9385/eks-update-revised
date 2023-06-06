@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    sidecar.istio.io/inject: "true"
+    traffic.sidecar.istio.io/includeInboundPorts: "8080"
+    traffic.sidecar.istio.io/excludeOutboundPorts: "1234"
+    security.istio.io/Authorization: "None"
+  labels:
+    app.kubernetes.io/name: USERS
+    app.kubernetes.io/instance: USERS-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: users-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: USERS
+  template:
+    metadata:
+      labels:
+        app: USERS
+    spec:
+      containers:
+        - image: 737971166371.dkr.ecr.us-east-1.amazonaws.com/users:latest
+          imagePullPolicy: Always
+          name: users
+          ports:
+            - containerPort: 5000
+      volumes:
+      - name: destination-config
+        configMap:
+          name: destination-config
